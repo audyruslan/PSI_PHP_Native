@@ -20,6 +20,7 @@
                           <p>Dashboard</p>
                       </a>
                   </li>
+                  <li class="nav-header">Menu Data</li>
                   <li class="nav-item">
                       <a href="#" class="nav-link">
                           <i class="nav-icon fas fa-table"></i>
@@ -54,7 +55,15 @@
                           </p>
                       </a>
                   </li>
-
+                  <li class="nav-header">Menu Lainnya</li>
+                  <li class="nav-item">
+                      <a href="tentang.php" class="nav-link">
+                        <i class="fas fa-info-circle"></i>
+                          <p>
+                              Tentang
+                          </p>
+                      </a>
+                  </li>
               </ul>
           </nav>
           <!-- /.sidebar-menu -->

@@ -1,6 +1,6 @@
 <?php
 session_start();
-$title = "Penilaian - Preference Selection Index (PSI)";
+$title = "Penilaian Pasien - Preference Selection Index (PSI)";
 require 'layouts/header.php';
 require 'layouts/navbar.php';
 require 'layouts/sidebar.php';
@@ -50,11 +50,11 @@ if (isset($_POST['simpan'])) {
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Penilaian</h1>
+                    <h1 class="m-0">Penilaian Pasien</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item active">Penilaian</li>
+                        <li class="breadcrumb-item active">Penilaian Pasien</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -67,9 +67,9 @@ if (isset($_POST['simpan'])) {
         <div class="container-fluid">
             <form action="" method="POST">
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-md-3">
                         <div class="form-group">
-                            <label for="stambuk">Stambuk</label>
+                            <label for="stambuk">Pasien</label>
                             <select class="form-control" name="stambuk" id="stambuk">
                                 <option>--Silahkan Pilih--</option>
                                 <?php
@@ -81,32 +81,31 @@ if (isset($_POST['simpan'])) {
                                 ?>
                                     <?php while ($row = mysqli_fetch_array($hasil)) :; {
                                         } ?>
-                                        <option><?php echo $row[0]; ?></option>
+                                        <option><?php echo $row[1]; ?></option>
                                     <?php endwhile; ?>
+                                <?php } ?>
                             </select>
-                        <?php } ?>
-                        </select>
                         </div>
                         <div class="form-group">
-                            <label for="pengalaman_kerja">Pengalaman Kerja</label>
+                            <label for="pengalaman_kerja">Administrasi</label>
                             <input type="text" class="form-control" name="pengalaman_kerja" id="pengalaman_kerja" autocomplete="off">
                         </div>
                         <div class="form-group">
-                            <label for="pendidikan">Pendidikan</label>
+                            <label for="pendidikan">Kenyamanan Pelayanan</label>
                             <input type="text" class="form-control" name="pendidikan" id="pendidikan" autocomplete="off">
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-md-3">
                     <div class="form-group">
-                            <label for="usia">Usia</label>
+                            <label for="usia">Fasilitas Pelayanan</label>
                             <input type="text" class="form-control" name="usia" id="usia" autocomplete="off">
                         </div>
                         <div class="form-group">
-                            <label for="status_perkawinan">Status Perkawinan</label>
+                            <label for="status_perkawinan">Kinerja Petugas</label>
                             <input type="text" class="form-control" name="status_perkawinan" id="status_perkawinan" autocomplete="off">
                         </div>
                         <div class="form-group">
-                            <label for="alamat">Alamat</label>
+                            <label for="alamat">Biaya/Harga</label>
                             <input type="text" class="form-control" name="alamat" id="alamat" autocomplete="off">
                         </div>
                     </div>
@@ -122,17 +121,17 @@ if (isset($_POST['simpan'])) {
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="dataMahasiswa" class="table table-bordered table-hover">
+                            <table id="tablePenilaian" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
                                         <th>No</th>
                                         <th>Stambuk</th>
                                         <th>Nama Lengkap</th>
-                                        <th>Pengalaman Kerja</th>
-                                        <th>Pendidikan</th>
-                                        <th>Usia</th>
-                                        <th>Status Perkawinan</th>
-                                        <th>Alamat</th>
+                                        <th>Administrasi</th>
+                                        <th>Kenyamanan Pelayanan</th>
+                                        <th>Fasilitas Pelayanan</th>
+                                        <th>Kinerja Petugas</th>
+                                        <th>Biaya/Harga</th>
                                         <th>Aksi</th>
 
                                     </tr>

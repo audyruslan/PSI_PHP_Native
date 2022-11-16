@@ -39,17 +39,16 @@ require 'functions.php';
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example" class="table table-bordered table-hover">
+                            <table id="tableMatriks" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
                                         <th>No</th>
                                         <th>Alternatif</th>
-                                        <th>Pengalaman Kerja</th>
-                                        <th>Pendidikan</th>
-                                        <th>Usia</th>
-                                        <th>Status Perkawinan</th>
-                                        <th>Alamat</th>
-
+                                        <th>Administrasi</th>
+                                        <th>Kenyamanan Pelayanan</th>
+                                        <th>Fasilitas Pelayanan</th>
+                                        <th>Kinerja Petugas</th>
+                                        <th>Biaya/Harga</th>
                                     </tr>
                                 </thead>
                                 <?php
@@ -85,16 +84,16 @@ require 'functions.php';
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example" class="table table-bordered table-hover">
+                            <table id="tableNormalisasi" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
                                         <th>No</th>
                                         <th>Alternatif</th>
-                                        <th>Pengalaman Kerja</th>
-                                        <th>Pendidikan</th>
-                                        <th>Usia</th>
-                                        <th>Status Perkawinan</th>
-                                        <th>Alamat</th>
+                                        <th>Administrasi</th>
+                                        <th>Kenyamanan Pelayanan</th>
+                                        <th>Fasilitas Pelayanan</th>
+                                        <th>Kinerja Petugas</th>
+                                        <th>Biaya/Harga</th>
                                     </tr>
                                 </thead>
                                 <?php
@@ -184,7 +183,7 @@ require 'functions.php';
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example" class="table table-bordered table-hover">
+                            <table id="tableKinerja" class="table table-bordered table-hover">
                                 <tbody>
                                     <?php 
                                         $sql = "SELECT*FROM tb_alternatif";
@@ -214,16 +213,16 @@ require 'functions.php';
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example" class="table table-bordered table-hover">
+                            <table id="tablePreferensi" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
                                         <th>No</th>
                                         <th>Alternatif</th>
-                                        <th>Pengalaman Kerja</th>
-                                        <th>Pendidikan</th>
-                                        <th>Usia</th>
-                                        <th>Status Perkawinan</th>
-                                        <th>Alamat</th>
+                                        <th>Administrasi</th>
+                                        <th>Kenyamanan Pelayanan</th>
+                                        <th>Fasilitas Pelayanan</th>
+                                        <th>Kinerja Petugas</th>
+                                        <th>Biaya/Harga</th>
                                     </tr>
                                 </thead>
                                 <?php
@@ -294,7 +293,7 @@ require 'functions.php';
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example" class="table table-bordered table-hover">
+                            <table id="tableDeviasi" class="table table-bordered table-hover">
                                 <tbody>
                                     <?php 
                                         $sql = "SELECT*FROM tb_alternatif";
@@ -302,11 +301,11 @@ require 'functions.php';
                                         $n = mysqli_num_rows($hasil);
                                     ?>
                                     <tr>
-                                        <th class="text-center"><?= 1-$P1;  ?></th>
-                                        <th class="text-center"><?= 1-$P2;  ?></th>
-                                        <th class="text-center"><?= 1-$P3;  ?></th>
-                                        <th class="text-center"><?= 1-$P4;  ?></th>
-                                        <th class="text-center"><?= 1-$P5;  ?></th>
+                                        <td class="text-center"><?= 1-$P1;  ?></td>
+                                        <td class="text-center"><?= 1-$P2;  ?></td>
+                                        <td class="text-center"><?= 1-$P3;  ?></td>
+                                        <td class="text-center"><?= 1-$P4;  ?></td>
+                                        <td class="text-center"><?= 1-$P5;  ?></td>
                                         <th class="text-center bg-warning"><?= $totDev = (1-$P1)+(1-$P2)+(1-$P3)+(1-$P4)+(1-$P5);  ?></th>
                                     </tr>
                                 </tbody>
@@ -350,16 +349,16 @@ require 'functions.php';
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example" class="table table-bordered table-hover">
+                            <table id="tablePSI" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Alternatif</th>
-                                        <th>Pengalaman Kerja</th>
-                                        <th>Pendidikan</th>
-                                        <th>Usia</th>
-                                        <th>Status Perkawinan</th>
-                                        <th>Alamat</th>
+                                        <th>Alternatif</th> 
+                                        <th>Administrasi</th>
+                                        <th>Kenyamanan Pelayanan</th>
+                                        <th>Fasilitas Pelayanan</th>
+                                        <th>Kinerja Petugas</th>
+                                        <th>Biaya/Harga</th>
                                     </tr>
                                 </thead>
                                 <?php
@@ -440,7 +439,7 @@ require 'functions.php';
             <div class="row">
 
                 <!-- Hitung Nilai PSI -->
-                <div class="col-6">
+                <div class="col-md-6">
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Nilai PSI</h3>
@@ -497,7 +496,7 @@ require 'functions.php';
                 </div>
 
                 <!-- Perangkingan -->
-                <div class="col-6">
+                <div class="col-md-6">
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Perangkingan Alternatif</h3>

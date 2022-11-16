@@ -58,39 +58,37 @@ if (isset($_POST['simpan'])) {
     <section class="content">
         <div class="container-fluid">
             <form action="" method="POST">
-                <div class="form-group row">
-                    <label for="stambuk" class="col-2 col-form-label">Stambuk</label>
-                    <div class="col-3">
-                        <input type="text" class="form-control" name="stambuk" id="stambuk" autocomplete="off" placeholder="Masukkan Stambuk">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="stambuk">Stambuk</label>
+                            <input type="text" class="form-control" name="stambuk" id="stambuk" autocomplete="off" placeholder="Masukkan Stambuk">
+                        </div>
+                        <div class="form-group">
+                            <label for="jenis_kelamin">Jenis Kelamin</label>
+                            <select class="form-control" name="jenis_kelamin" id="jenis_kelamin">
+                                <option>--Silahkan Pilih--</option>
+                                <option value="Laki-laki">Laki-laki</option>
+                                <option value="Perempuan">Perempuan</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label for="nama" class="col-2 col-form-label">Nama</label>
-                    <div class="col-3">
-                        <input type="text" class="form-control" name="nama" id="nama" autocomplete="off" placeholder="Masukkan Nama">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="jenis_kelamin" class="col-2 col-form-label">Jenis Kelamin</label>
-                    <div class="col-3">
-                        <select class="form-control" name="jenis_kelamin" id="jenis_kelamin">
-                            <option>--Silahkan Pilih--</option>
-                            <option value="Laki-laki">Laki-laki</option>
-                            <option value="Perempuan">Perempuan</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="jurusan" class="col-2 col-form-label">Jurusan</label>
-                    <div class="col-3">
-                        <select class="form-control" name="jurusan" id="jurusan">
-                            <option>--Silahkan Pilih--</option>
-                            <option value="Sipil">Sipil</optionX>
-                            <option value="Arsitek">Arsitek</optionX>
-                            <option value="Elektro">Elektro</optionX>
-                            <option value="Mesin">Mesin</optionX>
-                            <option value="Teknologi Informasi">Teknologi Informasi</optionX>
-                        </select>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="nama">Nama</label>
+                            <input type="text" class="form-control" name="nama" id="nama" autocomplete="off" placeholder="Masukkan Nama">
+                        </div>
+                        <div class="form-group">
+                            <label for="jurusan">Jurusan</label>
+                            <select class="form-control" name="jurusan" id="jurusan">
+                                <option>--Silahkan Pilih--</option>
+                                <option value="Sipil">Sipil</optionX>
+                                <option value="Arsitek">Arsitek</optionX>
+                                <option value="Elektro">Elektro</optionX>
+                                <option value="Mesin">Mesin</optionX>
+                                <option value="Teknologi Informasi">Teknologi Informasi</optionX>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-success" name="simpan">Simpan</button>
@@ -104,7 +102,7 @@ if (isset($_POST['simpan'])) {
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="dataAlternatif" class="table table-bordered table-hover">
+                            <table id="tableAlternatif" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
                                         <th>No</th>

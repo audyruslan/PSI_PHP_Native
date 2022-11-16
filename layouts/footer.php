@@ -8,32 +8,14 @@
   </footer>
 
 
-  <!-- jQuery -->
-  <script src="plugins/jquery/jquery.min.js"></script>
-  <!-- jQuery UI 1.11.4 -->
-  <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
-  <!-- Bootstrap 4 -->
-  <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <!-- ChartJS -->
-  <script src="plugins/chart.js/Chart.min.js"></script>
-  <!-- Sparkline -->
-  <script src="plugins/sparklines/sparkline.js"></script>
-  <!-- JQVMap -->
-  <script src="plugins/jqvmap/jquery.vmap.min.js"></script>
-  <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-  <!-- jQuery Knob Chart -->
-  <script src="plugins/jquery-knob/jquery.knob.min.js"></script>
-  <!-- daterangepicker -->
-  <script src="plugins/moment/moment.min.js"></script>
-  <script src="plugins/daterangepicker/daterangepicker.js"></script>
-  <!-- Tempusdominus Bootstrap 4 -->
-  <script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-  <!-- Summernote -->
-  <script src="plugins/summernote/summernote-bs4.min.js"></script>
-  <!-- overlayScrollbars -->
-  <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-  <!-- AdminLTE App -->
-  <script src="assets/js/adminlte.js"></script>
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- ChartJS -->
+<script src="plugins/chart.js/Chart.min.js"></script>
+<!-- AdminLTE App -->
+<script src="assets/js/adminlte.min.js"></script>
   <!-- DataTables  & Plugins -->
   <script src="plugins/datatables/jquery.dataTables.min.js"></script>
   <script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -41,11 +23,98 @@
   <script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
   <script src="plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
   <script src="plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+  <!-- SwaetAlert2 -->
   <script src="plugins/sweetalert2/sweetalert2.all.min.js"></script>
-  <script>
+
+  <?php
+    if (isset($_SESSION['status']) && $_SESSION['status'] != '') {
+    ?>
+      <script>
+          Swal.fire({
+              title: '<?= $_SESSION['status'];  ?>',
+              icon: '<?= $_SESSION['status_icon'];  ?>',
+              text: '<?= $_SESSION['status_info'];  ?>'
+          });
+      </script>
+  <?php
+        unset($_SESSION['status']);
+    }
+    ?>
+
+<script>
       // DataTable
       $(function() {
-          $("#dataAlternatif").DataTable();
+        // Tabel Alternatif
+          $("#tableAlternatif").DataTable({
+            "responsive": true,
+            "autoWidth": false,
+            "lengthChange": false,
+            "language": {
+              url: 'assets/json/id.json'
+              }
+          });
+
+          // Tabel Penilaian
+          $("#tablePenilaian").DataTable({
+            "responsive": true,
+            "autoWidth": false,
+            "lengthChange": false,
+            "language": {
+              url: 'assets/json/id.json'
+              }
+          });
+          
+          // Tabel Matriks
+          $("#tableMatriks").DataTable({
+            "responsive": true,
+            "autoWidth": false,
+            "lengthChange": false,
+            "paging": false,
+            "searching": false,
+            "info": false,
+            "language": {
+              url: 'assets/json/id.json'
+              }
+          });
+          
+          // Tabel Normalisasi
+          $("#tableNormalisasi").DataTable({
+            "responsive": true,
+            "autoWidth": false,
+            "lengthChange": false,
+            "paging": false,
+            "searching": false,
+            "info": false,
+            "language": {
+              url: 'assets/json/id.json'
+              }
+          });
+
+          // Tabel Preferensi
+          $("#tablePreferensi").DataTable({
+            "responsive": true,
+            "autoWidth": false,
+            "lengthChange": false,
+            "paging": false,
+            "searching": false,
+            "info": false,
+            "language": {
+              url: 'assets/json/id.json'
+              }
+          });
+
+          // Tabel PSI
+          $("#tablePSI").DataTable({
+            "responsive": true,
+            "autoWidth": false,
+            "lengthChange": false,
+            "paging": false,
+            "searching": false,
+            "info": false,
+            "language": {
+              url: 'assets/json/id.json'
+              }
+          });
       });
 
       // Hapus Alternatif
@@ -117,20 +186,48 @@
 
       });
   </script>
-  <?php
-    if (isset($_SESSION['status']) && $_SESSION['status'] != '') {
-    ?>
-      <script>
-          Swal.fire({
-              title: '<?= $_SESSION['status'];  ?>',
-              icon: '<?= $_SESSION['status_icon'];  ?>',
-              text: '<?= $_SESSION['status_info'];  ?>'
-          });
-      </script>
-  <?php
-        unset($_SESSION['status']);
+
+<script>
+  $(function () {
+    /* ChartJS
+     * -------
+     * Here we will create a few charts using ChartJS
+     */
+
+       //-------------
+    //- DONUT CHART -
+    //-------------
+    // Get context with jQuery - using jQuery's .get() method.
+    var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
+    var donutData        = {
+      labels: [
+          'Administrasi',
+          'Kenyamanan Pelayanan',
+          'Fasilitast Pelayanan',
+          'Kinerja Petugas',
+          'Harga/Biaya',
+      ],
+      datasets: [
+        {
+          data: [<?php while($chart = mysqli_fetch_array($sqlChart)) { echo '"'.round($chart['nilai_akhir']/$totChart * 100, 2).'",'; } ?>],
+          backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc'],
+        }
+      ]
     }
-    ?>
+    var donutOptions     = {
+      maintainAspectRatio : false,
+      responsive : true,
+    }
+    //Create pie or douhnut chart
+    // You can switch between pie and douhnut using the method below.
+    new Chart(donutChartCanvas, {
+      type: 'doughnut',
+      data: donutData,
+      options: donutOptions
+    })
+
+  })
+</script>
   </body>
 
   </html>
